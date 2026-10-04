@@ -1,0 +1,8 @@
+{
+  "name": "Remix SPY Quantitative Signal \u0026 Return Weighting Lab",
+  "description": "Interactive quantitative finance dashboard visualizing the mathematical equivalence of Moving Averages (SMA, EMA, Log-MACD) to weighted sums of stationary log-returns and multiscale sequence tensors using SPY.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

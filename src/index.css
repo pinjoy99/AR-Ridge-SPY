@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F8FAFC;
+    color: #0F172A;
+    overflow-x: hidden;
+  }
+
+  h1, h2, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  code, pre, .font-mono, .tabular-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom subtle range input styling for precision quantitative sliders */
+input[type="range"] {
+  accent-color: #0284C7;
+}
+
+/* Publication & Academic Print Stylesheet */
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 14mm 14mm 16mm 14mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Hide interactive shell, buttons, sliders, navigation */
+  .no-print,
+  button:not(.print-allow),
+  input[type="range"],
+  header,
+  footer,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Show elements designated for print only */
+  .print-only,
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:flex {
+    display: flex !important;
+  }
+
+  /* Expand scrollable tables and containers */
+  .overflow-x-auto,
+  .overflow-y-auto,
+  .max-h-\[260px\],
+  .max-h-\[320px\],
+  .max-h-72,
+  .max-h-60,
+  .max-h-80 {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Page break rules for clean monograph pages */
+  article,
+  .print-avoid-break,
+  .bg-white.border {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+  }
+
+  .print-page-break {
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+
+  /* Ensure SVG vectors scale to full printable width */
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Crisp table border styling on paper */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th, td {
+    padding: 4pt 6pt !important;
+  }
+
+  /* KaTeX formula display in print */
+  .katex-display {
+    margin: 6pt 0 !important;
+  }
+}
